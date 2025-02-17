@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholistika</title>
+    <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/nprogress.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body x-data="{ videoOpened: 0, overflow: false, menuOpened: false}" x-bind:style="overflow == true ? 'overflow-x:hidden;overflow-y: hidden;' : 'overflow-y: auto;overflow-x:hidden;'">
+    <div class="overflow-x-hidden">
+        <header>
+            <div class="normal-container">
+                <div class="flex justify-between items-center py-10">
+                    <a href="index.html" class="w-logow h-logoh" style="background: center / contain no-repeat url(./assets/img/logo.png);"></a>
+                    <div class="flex items-center relative">
+                        <ul class="flex px-8 max-regular:hidden">
+                            <li class="py-3 px-4"><a href="#" class="text-white hover:opacity-50 transition-all">Home</a></li>
+                            <li class="py-3 px-4"><a href="#" class="text-white hover:opacity-50 transition-all">Pricing</a></li>
+                            <li class="py-3 px-4"><a href="#" class="text-white hover:opacity-50 transition-all">Faq</a></li>
+                        </ul>
+                        <a href="#" class="bg-highlight text-white py-3 px-5 rounded-md flex items-center group max-regular:mr-10 max-phone:hidden">
+                            <span>Contact us</span>
+                            <span class="ml-2 rotate-0 group-hover:-rotate-45 transition-transform">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </a>
+                        <button type="button" class="hidden max-regular:flex absolute top-half -translate-y-half right-0 flex-col w-6 h-4 justify-between z-200" @click="menuOpened = !menuOpened; overflow = !overflow;">
+                            <span x-bind:class="menuOpened ? 'rotate-45 translate-y-[7px] w-full bg-white h-menu rounded-xl transition-all duration-300 ease-in-out' : 'w-full bg-white h-menu rounded-xl transition-all duration-300 ease-in-out'"></span>
+                            <span x-bind:class="menuOpened ? 'invisible opacity-0 w-full bg-white h-menu rounded-xl transition-all duration-300 ease-in-out' : 'visible opacity-100 w-full bg-white h-menu rounded-xl transition-all duration-300 ease-in-out'"></span>
+                            <span x-bind:class="menuOpened ? '-rotate-45 -translate-y-[7px] w-full bg-white h-menu rounded-xl transition-all duration-300 ease-in-out' : 'w-full bg-white h-menu rounded-xl transition-all duration-300 ease-in-out'"></span>
+    
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div x-bind:class="menuOpened ? 'opacity-100 visible transition-all ease-in-out fixed top-0 left-0 bottom-0 right-0 bg-darklight z-100 overflow-y-auto' : 'opacity-0 invisible transition-all ease-in-out fixed top-0 left-0 bottom-0 right-0 bg-darklight z-100 overflow-y-auto pointer-events-none'" x-cloak="true">
+            <div class="normal-container">
+                <div class="flex flex-col py-20">
+                    <ul class="flex flex-col">
+                        <li class="my-4 mx-2"><a href="#" class="text-white text-regular">Home</a></li>
+                        <li class="my-4 mx-2"><a href="#" class="text-white text-regular">Pricing</a></li>
+                        <li class="my-4 mx-2"><a href="#" class="text-white text-regular">Faq</a></li>
+                        <li class="my-4 mx-2"><a href="#" class="text-white text-regular">Privacy Policy</a></li>
+                        <li class="my-4 mx-2"><a href="#" class="text-white text-regular">Tearms of use</a></li>
+                        <li class="my-4 mx-2"><a href="#" class="text-white text-regular">Products</a></li>
+                        <ul class="flex flex-col">
+                            <li class="my-4 ml-6"><a href="#" class="text-white text-preregular">Mastering Sewing</a></li>
+                            <li class="my-4 ml-6"><a href="#" class="text-white text-preregular">Watercolor Mastery</a></li>
+                            <li class="my-4 ml-6"><a href="#" class="text-white text-preregular">Gardening for All Seasons</a></li>
+                            <li class="my-4 ml-6"><a href="#" class="text-white text-preregular">Publish Like a Pro</a></li>
+                            <li class="my-4 ml-6"><a href="#" class="text-white text-preregular">The Art of Music</a></li>
+                            <li class="my-4 ml-6"><a href="#" class="text-white text-preregular">Handmade Soap Mastery</a></li>
+
+                        </ul>
+                    </ul>
+                    <a href="#" class="bg-highlight text-white py-3 px-10 rounded-md flex justify-center items-center group mt-8 phone:self-start">
+                        <span>Contact us</span>
+                        <span class="ml-2 rotate-0 group-hover:-rotate-45 transition-transform">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <main>
+            <section>
+                <div class="normal-container relative">
+                    <div class="flex flex-col justify-center pt-40 pb-20 text-white text-center">
+                        <h1 class="font-bold text-7xl max-regular:text-6xl max-phone:text-5xl max-phone:leading-line text-center font-worksans leading-20">You’re one funnel away from traveling the world</h1>
+                        <div class="pt-6 text-regular">Start for free today.</div>
+                        <div class="flex justify-center pt-12">
+                            <a href="#" class="bg-highlight text-white py-4 px-10 rounded-xl flex items-center group text-preregular">
+                                <span>Get started</span>
+                                <span class="ml-2 rotate-90 group-hover:-rotate-45 transition-transform">
+                                    <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="flex justify-center pt-6">
+                            <span class="text-white">Not ready to get started?</span>
+                            <a href="#" class="underline text-gray-300 hover:text-highlight2 ml-2 transition-all">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="absolute pointer-events-none w-hk h-hk -bottom-40 left-0 -z-10" style="background: center / contain no-repeat url(./assets/img/poly1.png);"></div>
+                    <div class="absolute pointer-events-none w-hk h-hk -top-20 right-0 -z-10" style="background: center / contain no-repeat url(./assets/img/poly2.png);"></div>
+                </div>
+            </section>
+            <section>
+                <div class="normal-container relative">
+                    <div class="flex flex-wrap items-stretch justify-center pt-40 max-phone:pt-20">
+                        <div class="w-full flex flex-col basis-third p-4 max-phone:px-0 max-beregular:basis-half max-regular:basis-full max-regular:items-center">
+                            <div class="w-full bg-glass backdrop-blur-lg h-full rounded-2xl overflow-hidden flex flex-col shadow-xl hover:shadow-2xl hover:backdrop-blur-md transition-all ease-in-out duration-500 max-regular:max-w-block max-phone:max-w-auto">
+                                <a href="#" class="w-full">
+                                    <img src="./assets/img/1.jpg" class="w-full aspect-card object-cover" alt="">
+                                </a>
+                                <div class="flex flex-col h-full px-4 pt-2 pb-8">
+                                    <div class="flex justify-between flex-wrap">
+                                        <div class="flex uppercase mt-6">
+                                            <span class="px-4 py-2 mr-2 text-white bg-glass text-small rounded-2xl">17 lessons</span>
+                                            <span class="px-4 py-2 mr-2 text-white bg-glass text-small rounded-2xl">1.3K students</span>
+                                        </div>
+                                        <div class="flex items-center text-white mt-6">
+                                            <span class="mr-2">
+                                                <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                                    width="18" height="18" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                                    <path fill="#FFAD43" d="M62.799,23.737c-0.47-1.399-1.681-2.419-3.139-2.642l-16.969-2.593L35.069,2.265
+                                                    C34.419,0.881,33.03,0,31.504,0c-1.527,0-2.915,0.881-3.565,2.265l-7.623,16.238L3.347,21.096c-1.458,0.223-2.669,1.242-3.138,2.642
+                                                    c-0.469,1.4-0.115,2.942,0.916,4l12.392,12.707l-2.935,17.977c-0.242,1.488,0.389,2.984,1.62,3.854
+                                                    c1.23,0.87,2.854,0.958,4.177,0.228l15.126-8.365l15.126,8.365c0.597,0.33,1.254,0.492,1.908,0.492c0.796,0,1.592-0.242,2.269-0.72
+                                                    c1.231-0.869,1.861-2.365,1.619-3.854l-2.935-17.977l12.393-12.707C62.914,26.68,63.268,25.138,62.799,23.737z"/>
+                                                </svg>
+                                            </span>
+                                            <span>4.9</span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="text-regular font-medium mt-6 text-white hover:underline">Mastering Sewing: From Basics to Brilliance</a>
+                                    <div class="text-white mt-4 text-sm mb-10">A Step-by-Step Guide to Stitching, Patterns, and Perfect Finishes</div>
+                                    <a href="#" class="mt-auto bg-highlight text-white w-full py-3 px-4 rounded-md flex justify-between group">
+                                        <span class="flex items-center">
+                                            <span>Subscribe</span> 
+                                            <span class="ml-2 -rotate-45 group-hover:rotate-0 transition-transform">
+                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                        <span class="flex">
+                                            <span class="line-through opacity-50 mr-2">$98</span>
+                                            <span>$49</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full flex flex-col basis-third p-4 max-phone:px-0 max-beregular:basis-half max-regular:basis-full max-regular:items-center">
+                            <div class="w-full bg-glass backdrop-blur-lg h-full rounded-2xl overflow-hidden flex flex-col shadow-xl hover:shadow-2xl hover:backdrop-blur-md transition-all ease-in-out duration-500 max-regular:max-w-block max-phone:max-w-auto">
+                                <a href="#" class="w-full">
+                                    <img src="./assets/img/2.jpg" class="w-full aspect-card object-cover" alt="">
+                                </a>
+                                <div class="flex flex-col h-full px-4 pt-2 pb-8">
+                                    <div class="flex justify-between flex-wrap">
+                                        <div class="flex uppercase mt-6">
+                                            <span class="px-4 py-2 mr-2 text-white bg-glass text-small rounded-2xl">32 lessons</span>
+                                            <span class="px-4 py-2 mr-2 text-white bg-glass text-small rounded-2xl">3.3K students</span>
+                                        </div>
+                                        <div class="flex items-center text-white mt-6">
+                                            <span class="mr-2">
+                                                <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                                    width="18" height="18" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                                    <path fill="#FFAD43" d="M62.799,23.737c-0.47-1.399-1.681-2.419-3.139-2.642l-16.969-2.593L35.069,2.265
+                                                    C34.419,0.881,33.03,0,31.504,0c-1.527,0-2.915,0.881-3.565,2.265l-7.623,16.238L3.347,21.096c-1.458,0.223-2.669,1.242-3.138,2.642
+                                                    c-0.469,1.4-0.115,2.942,0.916,4l12.392,12.707l-2.935,17.977c-0.242,1.488,0.389,2.984,1.62,3.854
+                                                    c1.23,0.87,2.854,0.958,4.177,0.228l15.126-8.365l15.126,8.365c0.597,0.33,1.254,0.492,1.908,0.492c0.796,0,1.592-0.242,2.269-0.72
+                                                    c1.231-0.869,1.861-2.365,1.619-3.854l-2.935-17.977l12.393-12.707C62.914,26.68,63.268,25.138,62.799,23.737z"/>
+                                                </svg>
+                                            </span>
+                                            <span>5.0</span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="text-regular font-medium mt-6 text-white hover:underline">Watercolor Mastery: From First Strokes to Stunning Art</a>
+                                    <div class="text-white mt-4 text-sm mb-10">Explore Techniques, Blending, and Composition for Beautiful Paintings</div>
+                                    <a href="#" class="mt-auto bg-highlight text-white w-full py-3 px-4 rounded-md flex justify-between group">
+                                        <span class="flex items-center">
+                                            <span>Subscribe</span> 
+                                            <span class="ml-2 -rotate-45 group-hover:rotate-0 transition-transform">
+                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                        <span class="flex">
+                                            <span class="line-through opacity-50 mr-2">$100</span>
+                                            <span>$65</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full flex flex-col basis-third p-4 max-phone:px-0 max-beregular:basis-half max-regular:basis-full max-regular:items-center">
+                            <div class="w-full bg-glass backdrop-blur-lg h-full rounded-2xl overflow-hidden flex flex-col shadow-xl hover:shadow-2xl hover:backdrop-blur-md transition-all ease-in-out duration-500 max-regular:max-w-block max-phone:max-w-auto">
+                                <a href="#" class="w-full">
+                                    <img src="./assets/img/3.jpg" class="w-full aspect-card object-cover" alt="">
+                                </a>
+                                <div class="flex flex-col h-full px-4 pt-2 pb-8">
+                                    <div class="flex justify-between flex-wrap">
+                                        <div class="flex uppercase mt-6">
+                                            <span class="px-4 py-2 mr-2 text-white bg-glass text-small rounded-2xl">8 lessons</span>
+                                            <span class="px-4 py-2 mr-2 text-white bg-glass text-small rounded-2xl">300 students</span>
+                                        </div>
+                                        <div class="flex items-center text-white mt-6">
+                                            <span class="mr-2">
+                                                <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                                    width="18" height="18" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                                    <path fill="#FFAD43" d="M62.799,23.737c-0.47-1.399-1.681-2.419-3.139-2.642l-16.969-2.593L35.069,2.265
+                                                    C34.419,0.881,33.03,0,31.504,0c-1.527,0-2.915,0.881-3.565,2.265l-7.623,16.238L3.347,21.096c-1.458,0.223-2.669,1.242-3.138,2.642
+                                                    c-0.469,1.4-0.115,2.942,0.916,4l12.392,12.707l-2.935,17.977c-0.242,1.488,0.389,2.984,1.62,3.854
+                                                    c1.23,0.87,2.854,0.958,4.177,0.228l15.126-8.365l15.126,8.365c0.597,0.33,1.254,0.492,1.908,0.492c0.796,0,1.592-0.242,2.269-0.72
+                                                    c1.231-0.869,1.861-2.365,1.619-3.854l-2.935-17.977l12.393-12.707C62.914,26.68,63.268,25.138,62.799,23.737z"/>
+                                                </svg>
+                                            </span>
+                                            <span>4.7</span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="text-regular font-medium mt-6 text-white hover:underline">Gardening for All Seasons: Grow with Confidence</a>
+                                    <div class="text-white mt-4 text-sm mb-10">Essential Tips for Thriving Plants, Beautiful Flowers, and Bountiful Harvests</div>
+                                    <a href="#" class="mt-auto bg-highlight text-white w-full py-3 px-4 rounded-md flex justify-between group">
+                                        <span class="flex items-center">
+                                            <span>Subscribe</span> 
+                                            <span class="ml-2 -rotate-45 group-hover:rotate-0 transition-transform">
+                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                        <span class="flex">
+                                            <span class="line-through opacity-50 mr-2">$150</span>
+                                            <span>$75</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full flex flex-col basis-third p-4 max-phone:px-0 max-beregular:basis-half max-regular:basis-full max-regular:items-center">
+                            <div class="w-full bg-glass backdrop-blur-lg h-full rounded-2xl overflow-hidden flex flex-col shadow-xl hover:shadow-2xl hover:backdrop-blur-md transition-all ease-in-out duration-500 max-regular:max-w-block max-phone:max-w-auto">
+                                <a href="#" class="w-full">
+                                    <img src="./assets/img/4.jpg" class="w-full aspect-card object-cover" alt="">
+                                </a>
+                                <div class="flex flex-col h-full px-4 pt-2 pb-8">
+                                    <div class="flex justify-between flex-wrap">
+                                        <div class="flex uppercase mt-6">
+                                            <span class="px-4 py-2 mr-2 text-white bg-glass text-small rounded-2xl">21 lessons</span>
+                                            <span class="px-4 py-2 mr-2 text-white bg-glass text-small rounded-2xl">1.5K students</span>
+                                        </div>
+                                        <div class="flex items-center text-white mt-6">
+                                            <span class="mr-2">
+                                                <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                                    width="18" height="18" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                                    <path fill="#FFAD43" d="M62.799,23.737c-0.47-1.399-1.681-2.419-3.139-2.642l-16.969-2.593L35.069,2.265
+                                                    C34.419,0.881,33.03,0,31.504,0c-1.527,0-2.915,0.881-3.565,2.265l-7.623,16.238L3.347,21.096c-1.458,0.223-2.669,1.242-3.138,2.642
+                                                    c-0.469,1.4-0.115,2.942,0.916,4l12.392,12.707l-2.935,17.977c-0.242,1.488,0.389,2.984,1.62,3.854
+                                                    c1.23,0.87,2.854,0.958,4.177,0.228l15.126-8.365l15.126,8.365c0.597,0.33,1.254,0.492,1.908,0.492c0.796,0,1.592-0.242,2.269-0.72
+                                                    c1.231-0.869,1.861-2.365,1.619-3.854l-2.935-17.977l12.393-12.707C62.914,26.68,63.268,25.138,62.799,23.737z"/>
+                                                </svg>
+                                            </span>
+                                            <span>4.5</span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="text-regular font-medium mt-6 text-white hover:underline">Publish Like a Pro: From Manuscript to Market</a>
+                                    <div class="text-white mt-4 text-sm mb-10">A Complete Guide to Writing, Editing, and Self-Publishing Success</div>
+                                    <a href="#" class="mt-auto bg-highlight text-white w-full py-3 px-4 rounded-md flex justify-between group">
+                                        <span class="flex items-center">
+                                            <span>Subscribe</span> 
+                                            <span class="ml-2 -rotate-45 group-hover:rotate-0 transition-transform">
+                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                        <span class="flex">
+                                            <span class="line-through opacity-50 mr-2">$70</span>
+                                            <span>$35</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full flex flex-col basis-third p-4 max-phone:px-0 max-beregular:basis-half max-regular:basis-full max-regular:items-center">
+                            <div class="w-full bg-glass backdrop-blur-lg h-full rounded-2xl overflow-hidden flex flex-col shadow-xl hover:shadow-2xl hover:backdrop-blur-md transition-all ease-in-out duration-500 max-regular:max-w-block max-phone:max-w-auto">
+                                <a href="#" class="w-full">
+                                    <img src="./assets/img/5.jpg" class="w-full aspect-card object-cover" alt="">
+                                </a>
+                                <div class="flex flex-col h-full px-4 pt-2 pb-8">
+                                    <div class="flex justify-between flex-wrap">
+                                        <div class="flex uppercase mt-6">
+                                            <span class="px-4 py-2 mr-2 text-white bg-glass text-small rounded-2xl">63 lessons</span>
+                                            <span class="px-4 py-2 mr-2 text-white bg-glass text-small rounded-2xl">5.9K students</span>
+                                        </div>
+                                        <div class="flex items-center text-white mt-6">
+                                            <span class="mr-2">
+                                                <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                                    width="18" height="18" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                                    <path fill="#FFAD43" d="M62.799,23.737c-0.47-1.399-1.681-2.419-3.139-2.642l-16.969-2.593L35.069,2.265
+                                                    C34.419,0.881,33.03,0,31.504,0c-1.527,0-2.915,0.881-3.565,2.265l-7.623,16.238L3.347,21.096c-1.458,0.223-2.669,1.242-3.138,2.642
+                                                    c-0.469,1.4-0.115,2.942,0.916,4l12.392,12.707l-2.935,17.977c-0.242,1.488,0.389,2.984,1.62,3.854
+                                                    c1.23,0.87,2.854,0.958,4.177,0.228l15.126-8.365l15.126,8.365c0.597,0.33,1.254,0.492,1.908,0.492c0.796,0,1.592-0.242,2.269-0.72
+                                                    c1.231-0.869,1.861-2.365,1.619-3.854l-2.935-17.977l12.393-12.707C62.914,26.68,63.268,25.138,62.799,23.737z"/>
+                                                </svg>
+                                            </span>
+                                            <span>4.8</span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="text-regular font-medium mt-6 text-white hover:underline">The Art of Music: Play, Create, and Express Yourself</a>
+                                    <div class="text-white mt-4 text-sm mb-10">Learn Essential Techniques to Master Your Instrument and Develop Your Sound</div>
+                                    <a href="#" class="mt-auto bg-highlight text-white w-full py-3 px-4 rounded-md flex justify-between group">
+                                        <span class="flex items-center">
+                                            <span>Subscribe</span> 
+                                            <span class="ml-2 -rotate-45 group-hover:rotate-0 transition-transform">
+                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                        <span class="flex">
+                                            <span class="line-through opacity-50 mr-2">$80</span>
+                                            <span>$39</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full flex flex-col basis-third p-4 max-phone:px-0 max-beregular:basis-half max-regular:basis-full max-regular:items-center">
+                            <div class="w-full bg-glass backdrop-blur-lg h-full rounded-2xl overflow-hidden flex flex-col shadow-xl hover:shadow-2xl hover:backdrop-blur-md transition-all ease-in-out duration-500 max-regular:max-w-block max-phone:max-w-auto">
+                                <a href="#" class="w-full">
+                                    <img src="./assets/img/6.jpg" class="w-full aspect-card object-cover" alt="">
+                                </a>
+                                <div class="flex flex-col h-full px-4 pt-2 pb-8">
+                                    <div class="flex justify-between flex-wrap">
+                                        <div class="flex uppercase mt-6">
+                                            <span class="px-4 py-2 mr-2 text-white bg-glass text-small rounded-2xl">9 lessons</span>
+                                            <span class="px-4 py-2 mr-2 text-white bg-glass text-small rounded-2xl">900 students</span>
+                                        </div>
+                                        <div class="flex items-center text-white mt-6">
+                                            <span class="mr-2">
+                                                <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                                    width="18" height="18" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                                    <path fill="#FFAD43" d="M62.799,23.737c-0.47-1.399-1.681-2.419-3.139-2.642l-16.969-2.593L35.069,2.265
+                                                    C34.419,0.881,33.03,0,31.504,0c-1.527,0-2.915,0.881-3.565,2.265l-7.623,16.238L3.347,21.096c-1.458,0.223-2.669,1.242-3.138,2.642
+                                                    c-0.469,1.4-0.115,2.942,0.916,4l12.392,12.707l-2.935,17.977c-0.242,1.488,0.389,2.984,1.62,3.854
+                                                    c1.23,0.87,2.854,0.958,4.177,0.228l15.126-8.365l15.126,8.365c0.597,0.33,1.254,0.492,1.908,0.492c0.796,0,1.592-0.242,2.269-0.72
+                                                    c1.231-0.869,1.861-2.365,1.619-3.854l-2.935-17.977l12.393-12.707C62.914,26.68,63.268,25.138,62.799,23.737z"/>
+                                                </svg>
+                                            </span>
+                                            <span>5.0</span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="text-regular font-medium mt-6 text-white hover:underline">Handmade Soap Mastery: Crafting Luxurious Bars</a>
+                                    <div class="text-white mt-4 text-sm mb-10">A Complete Guide to Natural Ingredients, Techniques, and Creative Designs</div>
+                                    <a href="#" class="mt-auto bg-highlight text-white w-full py-3 px-4 rounded-md flex justify-between group">
+                                        <span class="flex items-center">
+                                            <span>Subscribe</span> 
+                                            <span class="ml-2 -rotate-45 group-hover:rotate-0 transition-transform">
+                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                        <span class="flex">
+                                            <span class="line-through opacity-50 mr-2">$70</span>
+                                            <span>$30</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute pointer-events-none w-hk h-hk top-hk -left-20 -z-10" style="background: center / contain no-repeat url(./assets/img/poly4.png);"></div>
+                    <div class="absolute pointer-events-none w-hk h-hk bottom-40 right-60 -z-10" style="background: center / contain no-repeat url(./assets/img/poly3.png);"></div>
+                </div>
+            </section>
+            <section>
+                <div class="normal-container">
+                    <div class="flex justify-center items-center py-20 max-regular:flex-wrap">
+                        <div class="mx-4 max-regular:mx-4 max-regular:my-4"><img src="./assets/img/comp1.svg" class="max-h-comp" alt=""></div>
+                        <div class="mx-4 max-regular:mx-4 max-regular:my-4"><img src="./assets/img/comp2.svg" class="max-h-comp" alt=""></div>
+                        <div class="mx-4 max-regular:mx-4 max-regular:my-4"><img src="./assets/img/comp3.svg" class="max-h-comp" alt=""></div>
+                        <div class="mx-4 max-regular:mx-4 max-regular:my-4"><img src="./assets/img/comp4.svg" class="max-h-comp" alt=""></div>
+                        <div class="mx-4 max-regular:mx-4 max-regular:my-4"><img src="./assets/img/comp5.svg" class="max-h-comp" alt=""></div>
+                        <div class="mx-4 max-regular:mx-4 max-regular:my-4"><img src="./assets/img/comp6.png" class="max-h-comp" alt=""></div>
+                        <div class="mx-4 max-regular:mx-4 max-regular:my-4"><img src="./assets/img/comp7.svg" class="max-h-comp" alt=""></div>
+                    </div>
+                </div>
+            </section>
+            <section class="pb-40 pt-8">
+                <div id="splider1" class="splide">
+                    <div class="splide__track">
+                        <div class="splide__list">
+                            <div class="w-full flex flex-col basis-thirdy min-w-thirdy max-phone:min-w-auto max-phone:basis-full px-4 splide__slide cursor-grab">
+                                <div class="w-full bg-glass2 backdrop-blur-lg rounded-2xl overflow-hidden flex flex-col shadow-xl">
+                                    <div class="flex flex-col p-10">
+                                        <div class="text-preregular text-white">“Whether it’s courses, books, live events, physical products… literally any business I have a stake in needs to have a funnel. A funnel removes complexity, helps the customer get what they want faster, and increases your profits.”</div>
+                                        <div class="flex items-center pt-8 text-white">
+                                            <div class="w-avatar h-avatar rounded-full" style="background: center / contain no-repeat url(./assets/img/avatar1.jpg);"></div>
+                                            <div class="ml-4">
+                                                <h3 class="text-regular">Eileen Wilder</h3>
+                                                <div class="text-small">Scholistika Student</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full flex flex-col basis-thirdy min-w-thirdy max-phone:min-w-auto max-phone:basis-full px-4 splide__slide cursor-grab">
+                                <div class="w-full bg-glass2 backdrop-blur-lg rounded-2xl overflow-hidden flex flex-col shadow-xl">
+                                    <div class="flex flex-col p-10">
+                                        <div class="text-preregular text-white">“Whether it’s courses, books, live events, physical products… literally any business I have a stake in needs to have a funnel. A funnel removes complexity, helps the customer get what they want faster, and increases your profits.”</div>
+                                        <div class="flex items-center pt-8 text-white">
+                                            <div class="w-avatar h-avatar rounded-full" style="background: center / contain no-repeat url(./assets/img/avatar1.jpg);"></div>
+                                            <div class="ml-4">
+                                                <h3 class="text-regular">Eileen Wilder</h3>
+                                                <div class="text-small">Scholistika Student</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full flex flex-col basis-thirdy min-w-thirdy max-phone:min-w-auto max-phone:basis-full px-4 splide__slide cursor-grab">
+                                <div class="w-full bg-glass2 backdrop-blur-lg rounded-2xl overflow-hidden flex flex-col shadow-xl">
+                                    <div class="flex flex-col p-10">
+                                        <div class="text-preregular text-white">“Whether it’s courses, books, live events, physical products… literally any business I have a stake in needs to have a funnel. A funnel removes complexity, helps the customer get what they want faster, and increases your profits.”</div>
+                                        <div class="flex items-center pt-8 text-white">
+                                            <div class="w-avatar h-avatar rounded-full" style="background: center / contain no-repeat url(./assets/img/avatar1.jpg);"></div>
+                                            <div class="ml-4">
+                                                <h3 class="text-regular">Eileen Wilder</h3>
+                                                <div class="text-small">Scholistika Student</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full flex flex-col basis-thirdy min-w-thirdy max-phone:min-w-auto max-phone:basis-full px-4 splide__slide cursor-grab">
+                                <div class="w-full bg-glass2 backdrop-blur-lg rounded-2xl overflow-hidden flex flex-col shadow-xl">
+                                    <div class="flex flex-col p-10">
+                                        <div class="text-preregular text-white">“Whether it’s courses, books, live events, physical products… literally any business I have a stake in needs to have a funnel. A funnel removes complexity, helps the customer get what they want faster, and increases your profits.”</div>
+                                        <div class="flex items-center pt-8 text-white">
+                                            <div class="w-avatar h-avatar rounded-full" style="background: center / contain no-repeat url(./assets/img/avatar1.jpg);"></div>
+                                            <div class="ml-4">
+                                                <h3 class="text-regular">Eileen Wilder</h3>
+                                                <div class="text-small">Scholistika Student</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full flex flex-col basis-thirdy min-w-thirdy max-phone:min-w-auto max-phone:basis-full px-4 splide__slide cursor-grab">
+                                <div class="w-full bg-glass2 backdrop-blur-lg rounded-2xl overflow-hidden flex flex-col shadow-xl">
+                                    <div class="flex flex-col p-10">
+                                        <div class="text-preregular text-white">“Whether it’s courses, books, live events, physical products… literally any business I have a stake in needs to have a funnel. A funnel removes complexity, helps the customer get what they want faster, and increases your profits.”</div>
+                                        <div class="flex items-center pt-8 text-white">
+                                            <div class="w-avatar h-avatar rounded-full" style="background: center / contain no-repeat url(./assets/img/avatar1.jpg);"></div>
+                                            <div class="ml-4">
+                                                <h3 class="text-regular">Eileen Wilder</h3>
+                                                <div class="text-small">Scholistika Student</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full flex flex-col basis-thirdy min-w-thirdy max-phone:min-w-auto max-phone:basis-full px-4 splide__slide cursor-grab">
+                                <div class="w-full bg-glass2 backdrop-blur-lg rounded-2xl overflow-hidden flex flex-col shadow-xl">
+                                    <div class="flex flex-col p-10">
+                                        <div class="text-preregular text-white">“Whether it’s courses, books, live events, physical products… literally any business I have a stake in needs to have a funnel. A funnel removes complexity, helps the customer get what they want faster, and increases your profits.”</div>
+                                        <div class="flex items-center pt-8 text-white">
+                                            <div class="w-avatar h-avatar rounded-full" style="background: center / contain no-repeat url(./assets/img/avatar1.jpg);"></div>
+                                            <div class="ml-4">
+                                                <h3 class="text-regular">Eileen Wilder</h3>
+                                                <div class="text-small">Scholistika Student</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-40 bg-white" style="background: center / cover no-repeat url(./assets/img/glasswhite.jpg);">
+                <div class="normal-container">
+                    <div class="flex justify-center">
+                        <div class="text-center max-w-texter">
+                            <h2 class="text-4xl font-semibold font-poppins text-dark">Frequently Asked Questions</h2>
+                            <div class="text-preregular mt-8">Got Questions? We've Got Answers! Explore Common Queries About Your Membership.</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center mt-20 rounded-md" x-data="{accordion: 0}">
+                        <div @click="if(accordion == 1){accordion = 0}else{accordion = 1}" class="text-start w-full max-w-faq text-preregular max-phone:text-normal border border-solid border-border-faq rounded-t-lg bg-glass3 backdrop-blur-lg shadow-md">
+                            <button type="button" class="cursor-pointer w-full py-5 px-8 max-phone:px-6 text-dark flex justify-between items-center rounded-t-lg text-start">
+                                <span>What do I get with my membership?</span>
+                                <span class="ml-2" x-bind:class="accordion == 1 ? '-rotate-180 transition-all ease-in-out duration-500' : 'rotate-0 transition-all ease-in-out duration-500'">
+                                    <svg width="20" height="20" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#212529'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>
+                                </span>
+                            </button>
+                            <div x-show="accordion == 1" x-collapse.duration.500ms="" x-cloak="true">
+                                <div class="pt-5 px-8 pb-8 text-light2 max-phone:px-6 max-phone:pb-6 max-phone:pt-3 max-phone:font-worksans  text-normal font-poppins">
+                                    Your membership includes exclusive content, resources, community access, and other premium features designed to help you succeed
+                                </div>
+                            </div>
+                        </div>
+                        <div @click="if(accordion == 2){accordion = 0}else{accordion = 2}" class="text-start w-full max-w-faq text-preregular max-phone:text-normal border-b border-l border-r border-solid border-border-faq bg-glass3 backdrop-blur-lg shadow-md">
+                            <button type="button" class="cursor-pointer w-full py-5 px-8 max-phone:px-6 text-dark flex justify-between items-center text-start">
+                                <span>How do I cancel my membership?</span>
+                                <span class="ml-2" x-bind:class="accordion == 2 ? '-rotate-180 transition-all ease-in-out duration-500' : 'rotate-0 transition-all ease-in-out duration-500'">
+                                    <svg width="20" height="20" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#212529'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>
+                                </span>
+                            </button>
+                            <div x-show="accordion == 2" x-collapse.duration.500ms="" x-cloak="true">
+                                <div class="pt-5 px-8 pb-8 text-light2 max-phone:px-6 max-phone:pb-6 max-phone:pt-3 max-phone:font-worksans  text-normal font-poppins">
+                                    You can cancel anytime through your account settings. Your access will continue until the end of your current billing cycle.
+                                </div>
+                            </div>
+                        </div>
+                        <div @click="if(accordion == 3){accordion = 0}else{accordion = 3}" class="text-start w-full max-w-faq text-preregular max-phone:text-normal border-b border-l border-r border-solid border-border-faq bg-glass3 backdrop-blur-lg shadow-md">
+                            <button type="button" class="cursor-pointer w-full py-5 px-8 max-phone:px-6 text-dark flex justify-between items-center text-start">
+                                <span> Is there a free trial?</span>
+                                <span class="ml-2" x-bind:class="accordion == 3 ? '-rotate-180 transition-all ease-in-out duration-500' : 'rotate-0 transition-all ease-in-out duration-500'">
+                                    <svg width="20" height="20" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#212529'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>
+                                </span>
+                            </button>
+                            <div x-show="accordion == 3" x-collapse.duration.500ms="" x-cloak="true">
+                                <div class="pt-5 px-8 pb-8 text-light2 max-phone:px-6 max-phone:pb-6 max-phone:pt-3 max-phone:font-worksans  text-normal font-poppins">
+                                    Yes! We offer a 30-day free trial so you can explore the platform before committing to a paid membership.
+                                </div>
+                            </div>
+                        </div>
+                        <div @click="if(accordion == 4){accordion = 0}else{accordion = 4}" class="text-start w-full max-w-faq text-preregular max-phone:text-normal border-b border-l border-r border-solid border-border-faq bg-glass3 backdrop-blur-lg">
+                            <button type="button" class="cursor-pointer w-full py-5 px-8 max-phone:px-6 text-dark flex justify-between items-center text-start rounded-b-md">
+                                <span>Can I upgrade or downgrade my plan?</span>
+                                <span class="ml-2" x-bind:class="accordion == 4 ? '-rotate-180 transition-all ease-in-out duration-500' : 'rotate-0 transition-all ease-in-out duration-500'">
+                                    <svg width="20" height="20" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#212529'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>
+                                </span>
+                            </button>
+                            <div x-show="accordion == 4" x-collapse.duration.500ms="" x-cloak="true">
+                                <div class="pt-5 px-8 pb-8 text-light2 max-phone:px-6 max-phone:pb-6 max-phone:pt-3 max-phone:font-worksans  text-normal font-poppins">
+                                    Absolutely! You can change your membership plan anytime in your account settings.
+                                </div>
+                            </div>
+                        </div>
+                        <div @click="if(accordion == 5){accordion = 0}else{accordion = 5}" class="text-start w-full max-w-faq text-preregular max-phone:text-normal border-b border-l border-r border-solid border-border-faq bg-glass3 backdrop-blur-lg">
+                            <button type="button" class="cursor-pointer w-full py-5 px-8 max-phone:px-6 text-dark flex justify-between items-center text-start rounded-b-md">
+                                <span>Do I need any special software or tools?</span>
+                                <span class="ml-2" x-bind:class="accordion == 5 ? '-rotate-180 transition-all ease-in-out duration-500' : 'rotate-0 transition-all ease-in-out duration-500'">
+                                    <svg width="20" height="20" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#212529'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>
+                                </span>
+                            </button>
+                            <div x-show="accordion == 5" x-collapse.duration.500ms="" x-cloak="true">
+                                <div class="pt-5 px-8 pb-8 text-light2 max-phone:px-6 max-phone:pb-6 max-phone:pt-3 max-phone:font-worksans  text-normal font-poppins">
+                                    Everything you need is available online. Some content may require specific tools, which we’ll guide you through inside the platform.
+                                </div>
+                            </div>
+                        </div>
+                        <div @click="if(accordion == 6){accordion = 0}else{accordion = 6}" class="text-start w-full max-w-faq text-preregular max-phone:text-normal border-b border-l border-r border-solid border-border-faq rounded-b-lg bg-glass3 backdrop-blur-lg shadow-md">
+                            <button type="button" class="cursor-pointer w-full py-5 px-8 max-phone:px-6 text-dark flex justify-between items-center rounded-b-lg">
+                                <span>How do I contact support?</span>
+                                <span class="ml-2" x-bind:class="accordion == 6 ? '-rotate-180 transition-all ease-in-out duration-500' : 'rotate-0 transition-all ease-in-out duration-500'">
+                                    <svg width="20" height="20" xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#212529'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>
+                                </span>
+                            </button>
+                            <div x-show="accordion == 6" x-collapse.duration.500ms="" x-cloak="true">
+                                <div class="pt-5 px-8 pb-8 text-light2 max-phone:px-6 max-phone:pb-6 max-phone:pt-3 max-phone:font-worksans text-normal font-poppins">
+                                    You can reach our support team via email at smm@gmail.com or through the contact form on our website.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="pt-40 pb-20">
+                <div class="normal-container relative">
+                    <div class="flex justify-center">
+                        <div class="text-center max-w-texter">
+                            <h2 class="text-5xl font-semibold font-poppins text-white">Build a <span class="text-highlight2">funnel-based</span> business</h2>
+                            <div class="text-preregular mt-8 text-white">Funnels aren’t just a feature - they’re a mentality. From leads to sales, from your store to your courses to your community, your entire business is a funnel. And you could build all that here too.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex max-regular:flex-wrap justify-center mt-20">
+                        <div class="basis-third max-regular:basis-full p-4 max-afregular:p-2 max-regular:p-4 max-regular:pb-8 flex flex-col max-regular:items-center">
+                            <div class="w-full max-regular:max-w-block2">
+                                <button type="button" @click="videoOpened = 1; overflow = true; NProgress.start(); setTimeout(() => {NProgress.done();}, 500);" class="w-full rounded-xl overflow-hidden cursor-pointer">
+                                    <img src="https://images.clickfunnels.com/cdn-cgi/image/width=1000px,fit=scale-down,f=auto,q=80/https://statics.myclickfunnels.com/workspace/Yjxavr/image/9564288/file/faab0a0739e19bcdba76c0809bbca0e9.jpg" class="w-full aspect-square object-cover" alt="">
+                                </button>
+                                <div class="text-center mt-4">
+                                    <h3 class="text-white text-regular">“ClickFunnels is absolutely life-changing.”</h3>
+                                    <div class="text-white text-regular opacity-80 pt-4">Tim Shields</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="basis-third max-regular:basis-full p-4 max-afregular:p-2 max-regular:p-4 max-regular:pb-8 flex flex-col max-regular:items-center">
+                            <div class="w-full max-regular:max-w-block2">
+                                <button type="button" @click="videoOpened = 2; overflow = true; NProgress.start(); setTimeout(() => {NProgress.done();}, 500);" class="w-full rounded-xl overflow-hidden cursor-pointer">
+                                    <img src="https://images.clickfunnels.com/cdn-cgi/image/width=1000px,fit=scale-down,f=auto,q=80/https://statics.myclickfunnels.com/workspace/Yjxavr/image/9564290/file/e0331bc3a64f3c394a4f7dd757438436.jpg" class="w-full aspect-square object-cover" alt="">
+                                </button>
+                                <div class="text-center mt-4">
+                                    <h3 class="text-white text-regular">“ClickFunnels is absolutely life-changing.”</h3>
+                                    <div class="text-white text-regular opacity-80 pt-4">Tim Shields</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="basis-third max-regular:basis-full p-4 max-afregular:p-2 max-regular:p-4 max-regular:pb-8 flex flex-col max-regular:items-center">
+                            <div class="w-full max-regular:max-w-block2">
+                                <button type="button" @click="videoOpened = 3; overflow = true; NProgress.start(); setTimeout(() => {NProgress.done();}, 500);" class="w-full rounded-xl overflow-hidden cursor-pointer">
+                                    <img src="https://images.clickfunnels.com/cdn-cgi/image/width=1000px,fit=scale-down,f=auto,q=80/https://statics.myclickfunnels.com/workspace/Yjxavr/image/9564282/file/0bc029c4994517c67b3b29af712c1956.jpg" class="w-full aspect-square object-cover" alt="">
+                                </button>
+                                <div class="text-center mt-4">
+                                    <h3 class="text-white text-regular">“ClickFunnels is absolutely life-changing.”</h3>
+                                    <div class="text-white text-regular opacity-80 pt-4">Tim Shields</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center pt-12 max-regular:pt-6">
+                        <a href="#" class="bg-highlight text-white py-4 px-10 rounded-xl flex items-center group text-preregular">
+                            <span>Get started</span>
+                            <span class="ml-2 rotate-0 group-hover:-rotate-45 transition-transform">
+                                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="absolute pointer-events-none w-hk h-hk -top-20 left-0 -z-10" style="background: center / contain no-repeat url(./assets/img/poly5.png);"></div>
+                    <div class="absolute pointer-events-none w-hk h-hk bottom-20 right-40 -z-10" style="background: center / contain no-repeat url(./assets/img/poly6.png);"></div>
+                </div>
+            </section>
+            <section class="py-40 max-phone:py-20">
+                <div class="normal-container relative">
+                    <div class="flex justify-center">
+                        <div class="text-center max-w-texter">
+                            <h2 class="text-5xl font-semibold font-poppins text-white">Learn from <span class="text-highlight2">World-Class</span> Experts</h2>
+                            <div class="text-preregular mt-8 text-white">Learn directly from experts who excel in their craft.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute pointer-events-none w-hk h-hk left-0 top-0 -z-10" style="background: center / contain no-repeat url(./assets/img/poly1.png);"></div>
+                </div>
+                <div class="big-container">
+                    <div id="splider2" class="splide mt-20">
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                <div class="splide__slide w-full basis-six max-prebig:basis-fifth max-afregular:basis-fourth max-regular:basis-twider max-phone:basis-once">
+                                    <div class="w-full px-4 cursor-grab">
+                                        <div class="w-full rounded-xl overflow-hidden">
+                                            <img src="https://nowyouknow.io/cdn/shop/files/expert_bio_tai.webp?v=1736150689" class="w-full aspect-square object-cover pointer-events-none" alt="">
+                                        </div>
+                                        <div class="flex flex-col text-center mt-4">
+                                            <h3 class="text-regular text-white font-poppins">Jack Ralph</h3>
+                                            <p class="text-light opacity-70 text-normal mt-1">Professional Chocolatier</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="splide__slide w-full basis-six max-prebig:basis-fifth max-afregular:basis-fourth max-regular:basis-twider max-phone:basis-once">
+                                    <div class="w-full px-4 cursor-grab">
+                                        <div class="w-full rounded-xl overflow-hidden">
+                                            <img src="https://nowyouknow.io/cdn/shop/files/expert_bio_mik.webp?v=1736150689" class="w-full aspect-square object-cover pointer-events-none" alt="">
+                                        </div>
+                                        <div class="flex flex-col text-center mt-4">
+                                            <h3 class="text-regular text-white font-poppins">Jack Ralph</h3>
+                                            <p class="text-light opacity-70 text-normal mt-1">Professional Chocolatier</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="splide__slide w-full basis-six max-prebig:basis-fifth max-afregular:basis-fourth max-regular:basis-twider max-phone:basis-once">
+                                    <div class="w-full px-4 cursor-grab">
+                                        <div class="w-full rounded-xl overflow-hidden">
+                                            <img src="https://nowyouknow.io/cdn/shop/files/expert_bio_brianna.webp?v=1736150688" class="w-full aspect-square object-cover pointer-events-none" alt="">
+                                        </div>
+                                        <div class="flex flex-col text-center mt-4">
+                                            <h3 class="text-regular text-white font-poppins">Jack Ralph</h3>
+                                            <p class="text-light opacity-70 text-normal mt-1">Professional Chocolatier</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="splide__slide w-full basis-six max-prebig:basis-fifth max-afregular:basis-fourth max-regular:basis-twider max-phone:basis-once">
+                                    <div class="w-full px-4 cursor-grab">
+                                        <div class="w-full rounded-xl overflow-hidden">
+                                            <img src="https://nowyouknow.io/cdn/shop/files/Dumplings_-_LP_-_Expert.webp?v=1736419640" class="w-full aspect-square object-cover pointer-events-none" alt="">
+                                        </div>
+                                        <div class="flex flex-col text-center mt-4">
+                                            <h3 class="text-regular text-white font-poppins">Jack Ralph</h3>
+                                            <p class="text-light opacity-70 text-normal mt-1">Professional Chocolatier</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="splide__slide w-full basis-six max-prebig:basis-fifth max-afregular:basis-fourth max-regular:basis-twider max-phone:basis-once">
+                                    <div class="w-full px-4 cursor-grab">
+                                        <div class="w-full rounded-xl overflow-hidden">
+                                            <img src="https://nowyouknow.io/cdn/shop/files/Expert_bio_Large---Lily_Case.png?v=1730362877" class="w-full aspect-square object-cover pointer-events-none" alt="">
+                                        </div>
+                                        <div class="flex flex-col text-center mt-4">
+                                            <h3 class="text-regular text-white font-poppins">Jack Ralph</h3>
+                                            <p class="text-light opacity-70 text-normal mt-1">Professional Chocolatier</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="splide__slide w-full basis-six max-prebig:basis-fifth max-afregular:basis-fourth max-regular:basis-twider max-phone:basis-once">
+                                    <div class="w-full px-4 cursor-grab">
+                                        <div class="w-full rounded-xl overflow-hidden">
+                                            <img src="//nowyouknow.io/cdn/shop/files/Expert_bio_jazmin.webp?v=1736150688" class="w-full aspect-square object-cover pointer-events-none" alt="">
+                                        </div>
+                                        <div class="flex flex-col text-center mt-4">
+                                            <h3 class="text-regular text-white font-poppins">Jack Ralph</h3>
+                                            <p class="text-light opacity-70 text-normal mt-1">Professional Chocolatier</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="splide__slide w-full basis-six max-prebig:basis-fifth max-afregular:basis-fourth max-regular:basis-twider max-phone:basis-once">
+                                    <div class="w-full px-4 cursor-grab">
+                                        <div class="w-full rounded-xl overflow-hidden">
+                                            <img src="https://nowyouknow.io/cdn/shop/files/expert_bio_mascha.webp?v=1736150688" class="w-full aspect-square object-cover pointer-events-none" alt="">
+                                        </div>
+                                        <div class="flex flex-col text-center mt-4">
+                                            <h3 class="text-regular text-white font-poppins">Jack Ralph</h3>
+                                            <p class="text-light opacity-70 text-normal mt-1">Professional Chocolatier</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="splide__slide w-full basis-six max-prebig:basis-fifth max-afregular:basis-fourth max-regular:basis-twider max-phone:basis-once">
+                                    <div class="w-full px-4 cursor-grab">
+                                        <div class="w-full rounded-xl overflow-hidden">
+                                            <img src="//nowyouknow.io/cdn/shop/files/leeat_and_georgia_3043998a-7109-4bcc-871d-012e3c24ae82.webp?v=1736084119" class="w-full aspect-square object-cover pointer-events-none" alt="">
+                                        </div>
+                                        <div class="flex flex-col text-center mt-4">
+                                            <h3 class="text-regular text-white font-poppins">Jack Ralph</h3>
+                                            <p class="text-light opacity-70 text-normal mt-1">Professional Chocolatier</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-60 phone:py-40 bg-white backdrop-blur-3xl" style="background: left / cover no-repeat url(./assets/img/glasswhite.jpg);">
+                <div class="normal-container">
+                    <div class="flex justify-center">
+                        <div class="text-center max-w-texter">
+                            <h2 class="text-7xl max-regular:text-5xl font-semibold font-poppins text-dark">Ready to <span class="text-highlight">get started?</span></h2>
+                            <div class="text-preregular mt-8">Enter Your Email & We'll Send You Everything You Need to Get Started!</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center pt-12 max-regular:flex-col max-regular:items-center">
+                        <input type="text" class="bg-glass4 backdrop-blur-lg w-full max-w-input max-regular:max-w-block px-6 py-4 rounded-md placeholder:text-darkgray focus:outline-0 shadow-lg" placeholder="Enter your Email Address">
+                        <button type="button" class="max-regular:w-full max-regular:max-w-block ml-4 max-regular:ml-0 max-regular:mt-4 cursor-pointer bg-highlight text-white py-4 px-10 max-regular:flex max-regular:justify-center rounded-md flex items-center group text-preregular">
+                            <span>Get started</span>
+                        </button>
+                    </div>
+                    <div class="flex justify-center pt-6">
+                        <span class="text-dark">Not ready to get started?</span>
+                        <a href="#" class="underline text-dark hover:text-highlight ml-2 transition-all">Learn More</a>
+                    </div>
+                </div>
+            </section>
+            <div x-cloak="true" x-bind:class="videoOpened == 1 ? 'pointer-events-auto visible bg-darklight fixed top-0 left-0 bottom-0 right-0 transition-all ease-in-out duration-500 z-100 overflow-y-scroll' : 'opacity-0 invisible pointer-events-none bg-darklight fixed top-0 left-0 bottom-0 right-0 transition-all ease-in-out duration-500 z-100 overflow-y-scroll'">
+                <div class="normal-container h-full relative">
+                    
+                </div>
+            </div>
+        </main>
+        <footer class="bg-footer">
+            <div class="normal-container py-20">
+                <div class="flex items-center justify-between flex-wrap pt-12 max-afphone:pt-0">
+                    <div class="flex flex-col px-10 max-phone:px-6 pb-20">
+                        <a href="index.html" class="w-logow h-logoh" style="background: center / contain no-repeat url(./assets/img/logo.png);"></a>
+                        <ul class="flex flex-col mt-6">
+                            <li class="my-2"><a href="#" class="text-gray hover:text-highlight2 transition-all text-normal font-poppins">Pricing</a></li>
+                            <li class="my-2"><a href="#" class="text-gray hover:text-highlight2 transition-all text-normal font-poppins">Faq</a></li>
+                            <li class="my-2"><a href="#" class="text-gray hover:text-highlight2 transition-all text-normal font-poppins">Blog</a></li>
+                            <li class="my-2"><a href="#" class="text-gray hover:text-highlight2 transition-all text-normal font-poppins">About Us</a></li>
+                            <li class="my-2"><a href="#" class="text-gray hover:text-highlight2 transition-all text-normal font-poppins">Support</a></li>
+                            <li class="my-2"><a href="#" class="text-gray hover:text-highlight2 transition-all text-normal font-poppins">Privacy policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col px-10 max-phone:px-6 pb-20">
+                        <p class="text-regular font-poppins text-white">Products</p>
+                        <ul class="flex flex-col mt-4">
+                            <li class="my-2"><a href="#" class="text-gray hover:text-highlight2 transition-all text-normal font-poppins">Mastering Sewing</a></li>
+                            <li class="my-2"><a href="#" class="text-gray hover:text-highlight2 transition-all text-normal font-poppins">Watercolor Mastery</a></li>
+                            <li class="my-2"><a href="#" class="text-gray hover:text-highlight2 transition-all text-normal font-poppins">Gardening for All Seasons</a></li>
+                            <li class="my-2"><a href="#" class="text-gray hover:text-highlight2 transition-all text-normal font-poppins">Publish Like a Pro</a></li>
+                            <li class="my-2"><a href="#" class="text-gray hover:text-highlight2 transition-all text-normal font-poppins">The Art of Music</a></li>
+                            <li class="my-2"><a href="#" class="text-gray hover:text-highlight2 transition-all text-normal font-poppins">Handmade Soap Mastery</a></li>
+        
+                        </ul>
+                    </div>
+                    <div class="flex flex-col px-10 max-phone:px-6 pb-20 self-start">
+                        <p class="text-regular font-poppins text-white">Contacts</p>
+                        <ul class="flex flex-col mt-4">
+                            <li class="my-2"><a href="tel:+1394832102" class="text-highlight2 hover:text-white underline transition-all text-normal font-poppins">+1 394 832 102</a></li>
+                            <li class="my-2"><a href="mailto:scholistika@gmail.com" class="text-gray hover:text-white transition-all text-normal font-poppins">132 My Street, Kingston, New York 12401.</a></li>
+                            <li class="my-2"><a href="mailto:scholistika@gmail.com" class="text-highlight2 hover:text-white underline transition-all text-normal font-poppins">scholistika@gmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flex justify-center mt-10">
+                    <div class="text-yellow flex items-center">
+                        <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#ffc04d" d="M13.0061 3.5266C11.943 3.24287 10.9044 2.8742 9.90041 2.42414C8.91262 1.99564 7.95907 1.4922 7.04809 0.918224L6.79007 0.758719L6.53673 0.922916C5.62575 1.49689 4.6722 2.00033 3.68441 2.42883C2.67873 2.87753 1.6386 3.24463 0.574069 3.5266L0.22222 3.61573V7.52829C0.22222 13.81 6.56957 16.1603 6.63056 16.1838L6.79007 16.2401L6.94957 16.1838C7.01525 16.1838 13.3579 13.8147 13.3579 7.52829V3.61573L13.0061 3.5266ZM12.4196 7.52829C12.4196 12.6887 7.72833 14.8514 6.79007 15.2361C5.8518 14.8514 1.16048 12.6841 1.16048 7.52829V4.34289C2.1501 4.05839 3.11883 3.7057 4.05972 3.28734C5.00067 2.8806 5.91288 2.41038 6.79007 1.87994C7.66725 2.41038 8.57947 2.8806 9.52041 3.28734C10.4613 3.7057 11.43 4.05839 12.4196 4.34289V7.52829Z"></path>
+                        <path fill="#ffc04d" fill-rule="evenodd" clip-rule="evenodd" d="M6.78725 0.495728L7.16655 0.730204C8.06794 1.29814 9.01146 1.79629 9.98885 2.22027L9.99131 2.22134C10.9841 2.66635 12.0109 3.03092 13.062 3.31153L13.5801 3.44279V7.52829C13.5801 10.7557 11.9493 12.9761 10.3237 14.3815C9.5113 15.0839 8.6976 15.5855 8.08272 15.9117C7.77508 16.0749 7.51638 16.1946 7.33136 16.2739C7.23891 16.3136 7.16434 16.3434 7.1108 16.3636C7.0842 16.3736 7.0618 16.3816 7.04444 16.3875C7.03919 16.3892 7.03374 16.391 7.02835 16.3927C7.02507 16.3937 7.02181 16.3947 7.01862 16.3956C7.01668 16.3962 7.01428 16.3968 7.01155 16.3976L6.79007 16.4757L6.55076 16.3913C6.55562 16.3931 6.53656 16.3858 6.52678 16.382C6.5121 16.3764 6.49159 16.3683 6.46565 16.3579C6.41379 16.3371 6.34032 16.3066 6.24834 16.2662C6.06443 16.1855 5.80636 16.0648 5.49899 15.9009C4.88474 15.5735 4.07102 15.0723 3.25835 14.3711C1.63229 12.9681 0 10.7536 0 7.52829V3.44279L0.51833 3.31148C1.57094 3.0326 2.59943 2.66957 3.59387 2.22589L3.59597 2.22495C4.57293 1.80115 5.51605 1.30328 6.41707 0.73566L6.78725 0.495728ZM6.79288 1.02171L6.6552 1.11094C5.73496 1.69076 4.77172 2.19932 3.77392 2.63223C2.75768 3.08557 1.70664 3.45649 0.630967 3.74141L0.628644 3.74203L0.444441 3.78868V7.52829C0.444441 10.5847 1.98583 12.6862 3.54869 14.0346C5.08007 15.3559 6.61944 15.942 6.70669 15.975L6.79007 16.0044L6.91151 15.9616H6.91622C6.92601 15.9581 6.93857 15.9535 6.95393 15.9477C7.00051 15.9301 7.06895 15.9029 7.15621 15.8655C7.33063 15.7907 7.57823 15.6762 7.87445 15.5191C8.46729 15.2046 9.25156 14.721 10.033 14.0453C11.5952 12.6946 13.1357 10.5873 13.1357 7.52829V3.78868L12.9488 3.74132C11.8746 3.45464 10.8252 3.08215 9.81073 2.62746C8.81328 2.1947 7.85038 1.68631 6.93043 1.10674L6.79288 1.02171ZM6.79007 1.62025L6.90506 1.68979C7.77362 2.21502 8.67688 2.68062 9.60859 3.08336L9.6107 3.08428C10.5422 3.49846 11.5013 3.84765 12.481 4.12932L12.6419 4.17555V7.52829C12.6419 10.184 11.4322 12.0695 10.1103 13.3337C8.79182 14.5947 7.35589 15.2443 6.87437 15.4417L6.79007 15.4763L6.70577 15.4417C6.2241 15.2443 4.78822 14.5934 3.4698 13.3319C2.14794 12.0671 0.938264 10.1817 0.938264 7.52829V4.17555L1.09909 4.12932C2.07885 3.84765 3.03792 3.49847 3.96943 3.08429L3.97154 3.08335C4.90325 2.6806 5.80651 2.21502 6.67508 1.68979L6.79007 1.62025ZM4.14894 3.49087C3.25004 3.8905 2.32598 4.23079 1.3827 4.50958V7.52829C1.3827 10.0307 2.51869 11.8068 3.77706 13.0108C4.96889 14.1512 6.2652 14.7722 6.79008 14.9953C7.31507 14.7723 8.61133 14.1523 9.80312 13.0125C11.0614 11.8091 12.1974 10.033 12.1974 7.52829V4.50958C11.2541 4.23079 10.3301 3.89049 9.43118 3.49086C8.52241 3.09797 7.64018 2.64646 6.79007 2.13918C5.93995 2.64646 5.05771 3.09798 4.14894 3.49087Z"></path>
+                        <path fill="#ffc04d" d="M3.44982 7.96934C3.36008 7.89249 3.24464 7.85233 3.12657 7.85689C3.0085 7.86145 2.8965 7.91039 2.81295 7.99394C2.7294 8.07749 2.68045 8.18949 2.67589 8.30756C2.67133 8.42563 2.71149 8.54107 2.78835 8.63082L5.60314 11.4456L10.7308 6.51503C10.8203 6.42794 10.8717 6.30882 10.8734 6.18389C10.8752 6.05896 10.8272 5.93845 10.7401 5.84887C10.653 5.75928 10.5339 5.70797 10.409 5.70621C10.2841 5.70445 10.1636 5.75239 10.074 5.83948L5.63129 10.1508L3.44982 7.96934Z"></path>
+                        <path fill="#ffc04d" fill-rule="evenodd" clip-rule="evenodd" d="M9.91921 5.68001C10.051 5.55192 10.2283 5.48142 10.4121 5.48401C10.596 5.4866 10.7713 5.56212 10.8995 5.69396C11.0276 5.8258 11.0982 6.00316 11.0956 6.18702C11.093 6.37088 11.0175 6.54619 10.8857 6.67436L10.8848 6.67521L5.60009 11.7568L2.62515 8.78188L2.61956 8.77536C2.5063 8.64311 2.44712 8.47298 2.45384 8.29898C2.46056 8.12499 2.53269 7.95993 2.65581 7.83681C2.77894 7.71368 2.94399 7.64155 3.11799 7.63483C3.29199 7.62811 3.46211 7.68729 3.59437 7.80056L3.60089 7.80614L5.63363 9.83888L9.91921 5.68001ZM10.4059 5.92841C10.3399 5.92748 10.2762 5.9528 10.2289 5.99882L5.62895 10.4627L3.29973 8.13351C3.25333 8.09607 3.19488 8.07663 3.13514 8.07894C3.073 8.08134 3.01406 8.1071 2.97008 8.15108C2.92611 8.19505 2.90035 8.254 2.89795 8.31614C2.89564 8.37587 2.91508 8.43433 2.95252 8.48072L5.60619 11.1344L10.5758 6.3557C10.6229 6.30972 10.6503 6.24659 10.6512 6.18076C10.6521 6.11476 10.6268 6.0511 10.5808 6.00377C10.5348 5.95645 10.4719 5.92934 10.4059 5.92841Z"></path>
+                        </svg>
+                        <p class="ml-3">30-day money back guarantee </p>
+                    </div>
+                </div>
+                <div class="flex justify-center mt-8">
+                    <ul class="flex flex-wrap justify-center" role="list">
+                        <li class="mx-1 mb-2">
+                        <svg class="icon icon--full-color" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-american_express" viewBox="0 0 38 24" width="38" height="24"><title id="pi-american_express">American Express</title><path fill="#000" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3Z" opacity=".07"></path><path fill="#006FCF" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32Z"></path><path fill="#FFF" d="M22.012 19.936v-8.421L37 11.528v2.326l-1.732 1.852L37 17.573v2.375h-2.766l-1.47-1.622-1.46 1.628-9.292-.02Z"></path><path fill="#006FCF" d="M23.013 19.012v-6.57h5.572v1.513h-3.768v1.028h3.678v1.488h-3.678v1.01h3.768v1.531h-5.572Z"></path><path fill="#006FCF" d="m28.557 19.012 3.083-3.289-3.083-3.282h2.386l1.884 2.083 1.89-2.082H37v.051l-3.017 3.23L37 18.92v.093h-2.307l-1.917-2.103-1.898 2.104h-2.321Z"></path><path fill="#FFF" d="M22.71 4.04h3.614l1.269 2.881V4.04h4.46l.77 2.159.771-2.159H37v8.421H19l3.71-8.421Z"></path><path fill="#006FCF" d="m23.395 4.955-2.916 6.566h2l.55-1.315h2.98l.55 1.315h2.05l-2.904-6.566h-2.31Zm.25 3.777.875-2.09.873 2.09h-1.748Z"></path><path fill="#006FCF" d="M28.581 11.52V4.953l2.811.01L32.84 9l1.456-4.046H37v6.565l-1.74.016v-4.51l-1.644 4.494h-1.59L30.35 7.01v4.51h-1.768Z"></path></svg>
+      
+                      </li><li class="mx-1 mb-2">
+                        <svg class="icon icon--full-color" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" x="0" y="0" width="38" height="24" viewBox="0 0 165.521 105.965" xml:space="preserve" aria-labelledby="pi-apple_pay"><title id="pi-apple_pay">Apple Pay</title><path fill="#000" d="M150.698 0H14.823c-.566 0-1.133 0-1.698.003-.477.004-.953.009-1.43.022-1.039.028-2.087.09-3.113.274a10.51 10.51 0 0 0-2.958.975 9.932 9.932 0 0 0-4.35 4.35 10.463 10.463 0 0 0-.975 2.96C.113 9.611.052 10.658.024 11.696a70.22 70.22 0 0 0-.022 1.43C0 13.69 0 14.256 0 14.823v76.318c0 .567 0 1.132.002 1.699.003.476.009.953.022 1.43.028 1.036.09 2.084.275 3.11a10.46 10.46 0 0 0 .974 2.96 9.897 9.897 0 0 0 1.83 2.52 9.874 9.874 0 0 0 2.52 1.83c.947.483 1.917.79 2.96.977 1.025.183 2.073.245 3.112.273.477.011.953.017 1.43.02.565.004 1.132.004 1.698.004h135.875c.565 0 1.132 0 1.697-.004.476-.002.952-.009 1.431-.02 1.037-.028 2.085-.09 3.113-.273a10.478 10.478 0 0 0 2.958-.977 9.955 9.955 0 0 0 4.35-4.35c.483-.947.789-1.917.974-2.96.186-1.026.246-2.074.274-3.11.013-.477.02-.954.022-1.43.004-.567.004-1.132.004-1.699V14.824c0-.567 0-1.133-.004-1.699a63.067 63.067 0 0 0-.022-1.429c-.028-1.038-.088-2.085-.274-3.112a10.4 10.4 0 0 0-.974-2.96 9.94 9.94 0 0 0-4.35-4.35A10.52 10.52 0 0 0 156.939.3c-1.028-.185-2.076-.246-3.113-.274a71.417 71.417 0 0 0-1.431-.022C151.83 0 151.263 0 150.698 0z"></path><path fill="#FFF" d="M150.698 3.532l1.672.003c.452.003.905.008 1.36.02.793.022 1.719.065 2.583.22.75.135 1.38.34 1.984.648a6.392 6.392 0 0 1 2.804 2.807c.306.6.51 1.226.645 1.983.154.854.197 1.783.218 2.58.013.45.019.9.02 1.36.005.557.005 1.113.005 1.671v76.318c0 .558 0 1.114-.004 1.682-.002.45-.008.9-.02 1.35-.022.796-.065 1.725-.221 2.589a6.855 6.855 0 0 1-.645 1.975 6.397 6.397 0 0 1-2.808 2.807c-.6.306-1.228.511-1.971.645-.881.157-1.847.2-2.574.22-.457.01-.912.017-1.379.019-.555.004-1.113.004-1.669.004H14.801c-.55 0-1.1 0-1.66-.004a74.993 74.993 0 0 1-1.35-.018c-.744-.02-1.71-.064-2.584-.22a6.938 6.938 0 0 1-1.986-.65 6.337 6.337 0 0 1-1.622-1.18 6.355 6.355 0 0 1-1.178-1.623 6.935 6.935 0 0 1-.646-1.985c-.156-.863-.2-1.788-.22-2.578a66.088 66.088 0 0 1-.02-1.355l-.003-1.327V14.474l.002-1.325a66.7 66.7 0 0 1 .02-1.357c.022-.792.065-1.717.222-2.587a6.924 6.924 0 0 1 .646-1.981c.304-.598.7-1.144 1.18-1.623a6.386 6.386 0 0 1 1.624-1.18 6.96 6.96 0 0 1 1.98-.646c.865-.155 1.792-.198 2.586-.22.452-.012.905-.017 1.354-.02l1.677-.003h135.875"></path><g><g><path fill="#000" d="M43.508 35.77c1.404-1.755 2.356-4.112 2.105-6.52-2.054.102-4.56 1.355-6.012 3.112-1.303 1.504-2.456 3.959-2.156 6.266 2.306.2 4.61-1.152 6.063-2.858"></path><path fill="#000" d="M45.587 39.079c-3.35-.2-6.196 1.9-7.795 1.9-1.6 0-4.049-1.8-6.698-1.751-3.447.05-6.645 2-8.395 5.1-3.598 6.2-.95 15.4 2.55 20.45 1.699 2.5 3.747 5.25 6.445 5.151 2.55-.1 3.549-1.65 6.647-1.65 3.097 0 3.997 1.65 6.696 1.6 2.798-.05 4.548-2.5 6.247-5 1.95-2.85 2.747-5.6 2.797-5.75-.05-.05-5.396-2.101-5.446-8.251-.05-5.15 4.198-7.6 4.398-7.751-2.399-3.548-6.147-3.948-7.447-4.048"></path></g><g><path fill="#000" d="M78.973 32.11c7.278 0 12.347 5.017 12.347 12.321 0 7.33-5.173 12.373-12.529 12.373h-8.058V69.62h-5.822V32.11h14.062zm-8.24 19.807h6.68c5.07 0 7.954-2.729 7.954-7.46 0-4.73-2.885-7.434-7.928-7.434h-6.706v14.894z"></path><path fill="#000" d="M92.764 61.847c0-4.809 3.665-7.564 10.423-7.98l7.252-.442v-2.08c0-3.04-2.001-4.704-5.562-4.704-2.938 0-5.07 1.507-5.51 3.82h-5.252c.157-4.86 4.731-8.395 10.918-8.395 6.654 0 10.995 3.483 10.995 8.89v18.663h-5.38v-4.497h-.13c-1.534 2.937-4.914 4.782-8.579 4.782-5.406 0-9.175-3.222-9.175-8.057zm17.675-2.417v-2.106l-6.472.416c-3.64.234-5.536 1.585-5.536 3.95 0 2.288 1.975 3.77 5.068 3.77 3.95 0 6.94-2.522 6.94-6.03z"></path><path fill="#000" d="M120.975 79.652v-4.496c.364.051 1.247.103 1.715.103 2.573 0 4.029-1.09 4.913-3.899l.52-1.663-9.852-27.293h6.082l6.863 22.146h.13l6.862-22.146h5.927l-10.216 28.67c-2.34 6.577-5.017 8.735-10.683 8.735-.442 0-1.872-.052-2.261-.157z"></path></g></g></svg>
+      
+                      </li><li class="mx-1 mb-2">
+                        <svg class="icon icon--full-color" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-diners_club"><title id="pi-diners_club">Diners Club</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><path d="M12 12v3.7c0 .3-.2.3-.5.2-1.9-.8-3-3.3-2.3-5.4.4-1.1 1.2-2 2.3-2.4.4-.2.5-.1.5.2V12zm2 0V8.3c0-.3 0-.3.3-.2 2.1.8 3.2 3.3 2.4 5.4-.4 1.1-1.2 2-2.3 2.4-.4.2-.4.1-.4-.2V12zm7.2-7H13c3.8 0 6.8 3.1 6.8 7s-3 7-6.8 7h8.2c3.8 0 6.8-3.1 6.8-7s-3-7-6.8-7z" fill="#3086C8"></path></svg>
+                      </li><li class="mx-1 mb-2">
+                        <svg class="icon icon--full-color" viewBox="0 0 38 24" width="38" height="24" role="img" aria-labelledby="pi-discover" fill="none" xmlns="http://www.w3.org/2000/svg"><title id="pi-discover">Discover</title><path fill="#000" opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32z" fill="#fff"></path><path d="M3.57 7.16H2v5.5h1.57c.83 0 1.43-.2 1.96-.63.63-.52 1-1.3 1-2.11-.01-1.63-1.22-2.76-2.96-2.76zm1.26 4.14c-.34.3-.77.44-1.47.44h-.29V8.1h.29c.69 0 1.11.12 1.47.44.37.33.59.84.59 1.37 0 .53-.22 1.06-.59 1.39zm2.19-4.14h1.07v5.5H7.02v-5.5zm3.69 2.11c-.64-.24-.83-.4-.83-.69 0-.35.34-.61.8-.61.32 0 .59.13.86.45l.56-.73c-.46-.4-1.01-.61-1.62-.61-.97 0-1.72.68-1.72 1.58 0 .76.35 1.15 1.35 1.51.42.15.63.25.74.31.21.14.32.34.32.57 0 .45-.35.78-.83.78-.51 0-.92-.26-1.17-.73l-.69.67c.49.73 1.09 1.05 1.9 1.05 1.11 0 1.9-.74 1.9-1.81.02-.89-.35-1.29-1.57-1.74zm1.92.65c0 1.62 1.27 2.87 2.9 2.87.46 0 .86-.09 1.34-.32v-1.26c-.43.43-.81.6-1.29.6-1.08 0-1.85-.78-1.85-1.9 0-1.06.79-1.89 1.8-1.89.51 0 .9.18 1.34.62V7.38c-.47-.24-.86-.34-1.32-.34-1.61 0-2.92 1.28-2.92 2.88zm12.76.94l-1.47-3.7h-1.17l2.33 5.64h.58l2.37-5.64h-1.16l-1.48 3.7zm3.13 1.8h3.04v-.93h-1.97v-1.48h1.9v-.93h-1.9V8.1h1.97v-.94h-3.04v5.5zm7.29-3.87c0-1.03-.71-1.62-1.95-1.62h-1.59v5.5h1.07v-2.21h.14l1.48 2.21h1.32l-1.73-2.32c.81-.17 1.26-.72 1.26-1.56zm-2.16.91h-.31V8.03h.33c.67 0 1.03.28 1.03.82 0 .55-.36.85-1.05.85z" fill="#231F20"></path><path d="M20.16 12.86a2.931 2.931 0 100-5.862 2.931 2.931 0 000 5.862z" fill="url(#pi-paint0_linear)"></path><path opacity=".65" d="M20.16 12.86a2.931 2.931 0 100-5.862 2.931 2.931 0 000 5.862z" fill="url(#pi-paint1_linear)"></path><path d="M36.57 7.506c0-.1-.07-.15-.18-.15h-.16v.48h.12v-.19l.14.19h.14l-.16-.2c.06-.01.1-.06.1-.13zm-.2.07h-.02v-.13h.02c.06 0 .09.02.09.06 0 .05-.03.07-.09.07z" fill="#231F20"></path><path d="M36.41 7.176c-.23 0-.42.19-.42.42 0 .23.19.42.42.42.23 0 .42-.19.42-.42 0-.23-.19-.42-.42-.42zm0 .77c-.18 0-.34-.15-.34-.35 0-.19.15-.35.34-.35.18 0 .33.16.33.35 0 .19-.15.35-.33.35z" fill="#231F20"></path><path d="M37 12.984S27.09 19.873 8.976 23h26.023a2 2 0 002-1.984l.024-3.02L37 12.985z" fill="#F48120"></path><defs><linearGradient id="pi-paint0_linear" x1="21.657" y1="12.275" x2="19.632" y2="9.104" gradientUnits="userSpaceOnUse"><stop stop-color="#F89F20"></stop><stop offset=".25" stop-color="#F79A20"></stop><stop offset=".533" stop-color="#F68D20"></stop><stop offset=".62" stop-color="#F58720"></stop><stop offset=".723" stop-color="#F48120"></stop><stop offset="1" stop-color="#F37521"></stop></linearGradient><linearGradient id="pi-paint1_linear" x1="21.338" y1="12.232" x2="18.378" y2="6.446" gradientUnits="userSpaceOnUse"><stop stop-color="#F58720"></stop><stop offset=".359" stop-color="#E16F27"></stop><stop offset=".703" stop-color="#D4602C"></stop><stop offset=".982" stop-color="#D05B2E"></stop></linearGradient></defs></svg>
+                      </li><li class="mx-1 mb-2">
+                        <svg class="icon icon--full-color" width="38" height="24" role="img" aria-labelledby="pi-jcb" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg"><title id="pi-jcb">JCB</title><g fill="none" fill-rule="evenodd"><g fill-rule="nonzero"><path d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z" fill="#000" opacity=".07"></path><path d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32" fill="#FFF"></path></g><path d="M11.5 5H15v11.5a2.5 2.5 0 0 1-2.5 2.5H9V7.5A2.5 2.5 0 0 1 11.5 5z" fill="#006EBC"></path><path d="M18.5 5H22v11.5a2.5 2.5 0 0 1-2.5 2.5H16V7.5A2.5 2.5 0 0 1 18.5 5z" fill="#F00036"></path><path d="M25.5 5H29v11.5a2.5 2.5 0 0 1-2.5 2.5H23V7.5A2.5 2.5 0 0 1 25.5 5z" fill="#2AB419"></path><path d="M10.755 14.5c-1.06 0-2.122-.304-2.656-.987l.78-.676c.068 1.133 3.545 1.24 3.545-.19V9.5h1.802v3.147c0 .728-.574 1.322-1.573 1.632-.466.144-1.365.221-1.898.221zm8.116 0c-.674 0-1.388-.107-1.965-.366-.948-.425-1.312-1.206-1.3-2.199.012-1.014.436-1.782 1.468-2.165 1.319-.49 3.343-.261 3.926.27v.972c-.572-.521-1.958-.898-2.919-.46-.494.226-.737.917-.744 1.448-.006.56.245 1.252.744 1.497.953.467 2.39.04 2.919-.441v1.01c-.358.255-1.253.434-2.129.434zm8.679-2.587c.37-.235.582-.567.582-1.005 0-.438-.116-.687-.348-.939-.206-.207-.58-.469-1.238-.469H23v5h3.546c.696 0 1.097-.23 1.315-.415.283-.25.426-.53.426-.96 0-.431-.155-.908-.737-1.212zm-1.906-.281h-1.428v-1.444h1.495c.956 0 .944 1.444-.067 1.444zm.288 2.157h-1.716v-1.513h1.716c.986 0 1.083 1.513 0 1.513z" fill="#FFF" fill-rule="nonzero"></path></g></svg>
+                      </li><li class="mx-1 mb-2">
+                        <svg class="icon icon--full-color" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-master"><title id="pi-master">Mastercard</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><circle fill="#EB001B" cx="15" cy="12" r="7"></circle><circle fill="#F79E1B" cx="23" cy="12" r="7"></circle><path fill="#FF5F00" d="M22 12c0-2.4-1.2-4.5-3-5.7-1.8 1.3-3 3.4-3 5.7s1.2 4.5 3 5.7c1.8-1.2 3-3.3 3-5.7z"></path></svg>
+                      </li><li class="mx-1 mb-2">
+                        <svg class="icon icon--full-color" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" width="38" height="24" role="img" aria-labelledby="pi-paypal"><title id="pi-paypal">PayPal</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><path fill="#003087" d="M23.9 8.3c.2-1 0-1.7-.6-2.3-.6-.7-1.7-1-3.1-1h-4.1c-.3 0-.5.2-.6.5L14 15.6c0 .2.1.4.3.4H17l.4-3.4 1.8-2.2 4.7-2.1z"></path><path fill="#3086C8" d="M23.9 8.3l-.2.2c-.5 2.8-2.2 3.8-4.6 3.8H18c-.3 0-.5.2-.6.5l-.6 3.9-.2 1c0 .2.1.4.3.4H19c.3 0 .5-.2.5-.4v-.1l.4-2.4v-.1c0-.2.3-.4.5-.4h.3c2.1 0 3.7-.8 4.1-3.2.2-1 .1-1.8-.4-2.4-.1-.5-.3-.7-.5-.8z"></path><path fill="#012169" d="M23.3 8.1c-.1-.1-.2-.1-.3-.1-.1 0-.2 0-.3-.1-.3-.1-.7-.1-1.1-.1h-3c-.1 0-.2 0-.2.1-.2.1-.3.2-.3.4l-.7 4.4v.1c0-.3.3-.5.6-.5h1.3c2.5 0 4.1-1 4.6-3.8v-.2c-.1-.1-.3-.2-.5-.2h-.1z"></path></svg>
+                      </li><li class="mx-1 mb-2">
+                        <svg class="icon icon--full-color" viewBox="0 0 38 24" width="38" height="24" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pi-venmo"><title id="pi-venmo">Venmo</title><g fill="none" fill-rule="evenodd"><rect fill-opacity=".07" fill="#000" width="38" height="24" rx="3"></rect><path fill="#3D95CE" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><path d="M24.675 8.36c0 3.064-2.557 7.045-4.633 9.84h-4.74L13.4 6.57l4.151-.402 1.005 8.275c.94-1.566 2.099-4.025 2.099-5.702 0-.918-.154-1.543-.394-2.058l3.78-.783c.437.738.634 1.499.634 2.46z" fill="#FFF" fill-rule="nonzero"></path></g></svg>
+      
+                      </li><li class="mx-1 mb-2">
+                        <svg class="icon icon--full-color" viewBox="0 0 38 24" xmlns="http://www.w3.org/2000/svg" role="img" width="38" height="24" aria-labelledby="pi-visa"><title id="pi-visa">Visa</title><path opacity=".07" d="M35 0H3C1.3 0 0 1.3 0 3v18c0 1.7 1.4 3 3 3h32c1.7 0 3-1.3 3-3V3c0-1.7-1.4-3-3-3z"></path><path fill="#fff" d="M35 1c1.1 0 2 .9 2 2v18c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V3c0-1.1.9-2 2-2h32"></path><path d="M28.3 10.1H28c-.4 1-.7 1.5-1 3h1.9c-.3-1.5-.3-2.2-.6-3zm2.9 5.9h-1.7c-.1 0-.1 0-.2-.1l-.2-.9-.1-.2h-2.4c-.1 0-.2 0-.2.2l-.3.9c0 .1-.1.1-.1.1h-2.1l.2-.5L27 8.7c0-.5.3-.7.8-.7h1.5c.1 0 .2 0 .2.2l1.4 6.5c.1.4.2.7.2 1.1.1.1.1.1.1.2zm-13.4-.3l.4-1.8c.1 0 .2.1.2.1.7.3 1.4.5 2.1.4.2 0 .5-.1.7-.2.5-.2.5-.7.1-1.1-.2-.2-.5-.3-.8-.5-.4-.2-.8-.4-1.1-.7-1.2-1-.8-2.4-.1-3.1.6-.4.9-.8 1.7-.8 1.2 0 2.5 0 3.1.2h.1c-.1.6-.2 1.1-.4 1.7-.5-.2-1-.4-1.5-.4-.3 0-.6 0-.9.1-.2 0-.3.1-.4.2-.2.2-.2.5 0 .7l.5.4c.4.2.8.4 1.1.6.5.3 1 .8 1.1 1.4.2.9-.1 1.7-.9 2.3-.5.4-.7.6-1.4.6-1.4 0-2.5.1-3.4-.2-.1.2-.1.2-.2.1zm-3.5.3c.1-.7.1-.7.2-1 .5-2.2 1-4.5 1.4-6.7.1-.2.1-.3.3-.3H18c-.2 1.2-.4 2.1-.7 3.2-.3 1.5-.6 3-1 4.5 0 .2-.1.2-.3.2M5 8.2c0-.1.2-.2.3-.2h3.4c.5 0 .9.3 1 .8l.9 4.4c0 .1 0 .1.1.2 0-.1.1-.1.1-.1l2.1-5.1c-.1-.1 0-.2.1-.2h2.1c0 .1 0 .1-.1.2l-3.1 7.3c-.1.2-.1.3-.2.4-.1.1-.3 0-.5 0H9.7c-.1 0-.2 0-.2-.2L7.9 9.5c-.2-.2-.5-.5-.9-.6-.6-.3-1.7-.5-1.9-.5L5 8.2z" fill="#142688"></path></svg>
+                      </li>
+                    </ul>
+                </div>
+                <div class="flex justify-center mt-8">
+                    <div class="text-gray max-w-texter">© 2025, <a href="index.html" class="hover:text-white hover:underline transition-all ease-in-out">Scholistika</a></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="./assets/js/nprogress.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
+    <script>
+        NProgress.configure({ easing: 'ease', speed: 500, showSpinner: false, color: '#e06582' });
+        NProgress.start();
+        document.addEventListener('DOMContentLoaded', function(){NProgress.done();});
+
+        new Splide( '#splider1', {
+            type: 'loop',
+            drag: 'free',
+            arrows: false,
+            pagination: false,
+            autoScroll: {
+                speed: 0.25,
+            },
+        }).mount(window.splide.Extensions);
+        new Splide( '#splider2', {
+            type: 'loop',
+            drag: 'free',
+            arrows: false,
+            pagination: false,
+        }).mount();
+    </script>
+</body>
+</html>
